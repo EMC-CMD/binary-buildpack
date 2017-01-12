@@ -8,9 +8,9 @@ $BP_DIR/compile-extensions/bin/store_buildpack_metadata $BP_DIR $CACHE_DIR
 
 sudo apt-get install build-essential
 
-pushd $BUILD_DIR
-  export PATH=/usr/local/cuda/bin:$PATH
-  make
-popd
+cd $BUILD_DIR
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/tmp/asaka:/usr/local/nvidia/lib64
+make
 
 exit 0
