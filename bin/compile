@@ -9,8 +9,11 @@ $BP_DIR/compile-extensions/bin/store_buildpack_metadata $BP_DIR $CACHE_DIR
 sudo apt-get install build-essential
 
 cd $BUILD_DIR
-export PATH=/usr/local/cuda/bin:$PATH
+export GOROOT=/usr/local/go1.7
+export CUDAROOT=/usr/local/cuda
+export PATH=$CUDAROOT/bin:$GOROOT/bin:$PATH
 export LD_LIBRARY_PATH=/tmp/asaka:/usr/local/nvidia/lib64
+
 make
 
 exit 0
