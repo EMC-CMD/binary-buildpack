@@ -6,4 +6,11 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 $BP_DIR/compile-extensions/bin/check_buildpack_version $BP_DIR $CACHE_DIR
 $BP_DIR/compile-extensions/bin/store_buildpack_metadata $BP_DIR $CACHE_DIR
 
+sudo apt-get install build-essential
+
+pushd $BUILD_DIR
+  export PATH=/usr/local/cuda/bin:$PATH
+  make
+popd
+
 exit 0
